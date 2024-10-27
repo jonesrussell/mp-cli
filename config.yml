@@ -1,4 +1,4 @@
 env: "local"
-api_url: "http://localhost:8080"
-username: "your-username"
-password: "your-password"
+api_url: "http://host.docker.internal:8080"
+username: "foobar"
+password: "foobar123!"

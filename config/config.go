@@ -7,10 +7,11 @@ import (
 )
 
 type Config struct {
-	Env      string
-	APIURL   string
-	Username string
-	Password string
+	Env        string
+	APIBaseURL string
+	Username   string
+	Password   string
+	UserID     string
 }
 
 func LoadConfig() (*Config, error) {
@@ -27,6 +28,16 @@ func LoadConfig() (*Config, error) {
 	err := viper.Unmarshal(&config)
 	if err != nil {
 		return nil, fmt.Errorf("unable to decode into struct, %v", err)
+	}
+
+	// Set default values if not provided
+	if config.APIBaseURL == "" {
+		config.APIBaseURL = "http://localhost:8080"
+	}
+
+	// Validate required fields
+	if config.Username == "" || config.Password == "" {
+		return nil, fmt.Errorf("username and password are required in the config file")
 	}
 
 	return &config, nil
