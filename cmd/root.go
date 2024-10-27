@@ -4,6 +4,7 @@ Copyright © 2024 Russell Jones <499552+jonesrussell@users.noreply.github.com>
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -21,7 +22,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 		// Add this to ensure the app stops after command execution
 		PersistentPostRun: func(cmd *cobra.Command, args []string) {
-			// This will signal fx to stop the application
+			fmt.Println("Command execution complete, shutting down...")
 			os.Exit(0)
 		},
 	}
