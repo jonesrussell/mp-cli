@@ -5,6 +5,8 @@ package cmd
 
 import (
 	"fmt"
+	"mp-cli/cmd/campaign"
+	"mp-cli/cmd/user"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -39,6 +41,6 @@ func RegisterRootCommand() *cobra.Command {
 }
 
 func init() {
-	rootCmd.AddCommand(NewUserCommand())
-	rootCmd.AddCommand(NewCampaignCommand())
+	rootCmd.AddCommand(user.NewUserCommand())
+	rootCmd.AddCommand(campaign.NewCampaignCommand())
 }
