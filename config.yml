@@ -1,0 +1,4 @@
+env: "local"
+api_url: "http://localhost:8080"
+username: "your-username"
+password: "your-password"
